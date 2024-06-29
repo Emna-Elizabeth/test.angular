@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="t-center">Login</h2>
+  <form [formGroup]="loginForm" >
+      <div class="inputDiv">
+          <label for="username" class="username">Username</label>
+          <div class="userArea">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="username" formControlName="userName" placeholder="Enter User Name" />
+              <div *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">
+                  <div class="text-danger" *ngIf="loginForm.get('userName')?.errors?.['required']">User Name is required.</div>
+                  <div class="text-danger" *ngIf="loginForm.get('userName')?.errors?.['minlength']">Minimum length must be 4.</div>
+              </div>
+          </div>
+          <hr>
+      </div>
+      <div class="inputDiv">
+          <label for="password" class="username">Password</label>
+          <div class="userArea">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="password" formControlName="password" placeholder="Enter Password" />
+              <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                  <div class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+              </div>
+          </div>
+          <hr>
+      </div>
+    
+      <div class="formBottom">
+          <p class="signUp">Don't have an account?</p>
+          <button class="btn">Sign Up</button>
+      </div>
+  </form>
+</div>
